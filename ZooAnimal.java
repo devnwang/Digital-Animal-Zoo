@@ -1,6 +1,11 @@
 package com.cognixia.jump.intermediatejava.assignments.digitalanimalzoo;
 
-public class ZooAnimal {
+import java.io.Serializable;
+
+public class ZooAnimal implements Serializable {
+
+	private static final long serialVersionUID = -8965747996737780716L;
+	
 	private String type;
 	private int population;
 	private String habitat;
