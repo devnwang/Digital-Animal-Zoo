@@ -126,10 +126,10 @@ public class DigitalZooAnimal {
 		while (!valid) {
 			
 			// get type of animal
-			String type = getValidatedStringInput(sc, "Enter an animal to add:");
+			String type = getValidatedStringInput(sc, "Enter an animal to add:").toUpperCase();
 			
 			// if animal matches any that already exists
-			if (zooAnimals.stream().anyMatch(a -> type.toLowerCase().equals(a.getType().toLowerCase())) ) {
+			if (zooAnimals.stream().anyMatch(a -> type.toUpperCase().equals(a.getType().toUpperCase())) ) {
 				// validation failed
 				valid = false;
 				
@@ -144,7 +144,7 @@ public class DigitalZooAnimal {
 			int population = getValidatedInteger(sc, "Enter animal's population:", Integer.MAX_VALUE);
 			
 			// get animal's habitat
-			String habitat = getValidatedStringInput(sc, "Enter the animal's habitat:");
+			String habitat = getValidatedStringInput(sc, "Enter the animal's habitat:").toUpperCase();
 			
 			// create the new zoo animal object
 			newAnimal = new ZooAnimal(type, population, habitat);
