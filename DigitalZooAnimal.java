@@ -20,7 +20,6 @@ import java.io.EOFException;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -61,6 +60,7 @@ public class DigitalZooAnimal {
 			System.out.println("ERR: Unable to load resource.");
 		}
 		
+		// user is using the program
 		while (!done) {
 			// prompt user for selection
 			opt = getValidatedInteger(sc, displayOptions(), 3);
@@ -129,7 +129,7 @@ public class DigitalZooAnimal {
 			String type = getValidatedStringInput(sc, "Enter an animal to add:");
 			
 			// if animal matches any that already exists
-			if (zooAnimals.stream().anyMatch(a -> type.equals(a.getType())) ) {
+			if (zooAnimals.stream().anyMatch(a -> type.toLowerCase().equals(a.getType().toLowerCase())) ) {
 				// validation failed
 				valid = false;
 				
